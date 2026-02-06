@@ -192,14 +192,15 @@
             </div>
         </div>
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu-overlay" class="md:hidden hidden fixed inset-0 z-40 bg-black/80"
-            onclick="closeMobileMenu()"></div>
+        <div id="mobile-menu-overlay" class="md:hidden hidden fixed inset-0 z-40"
+            style="background-color: rgba(0,0,0,0.85);" onclick="closeMobileMenu()"></div>
         <!-- Mobile Menu Sidebar -->
         <div id="mobile-menu"
-            class="md:hidden fixed top-0 right-0 h-full w-80 max-w-[85%] z-50 transform translate-x-full transition-transform duration-300 ease-in-out"
-            style="background-color: #000000;">
-            <div class="flex flex-col h-full" style="background-color: #000000;">
-                <div class="flex justify-between items-center p-6 border-b border-white/10">
+            class="md:hidden fixed top-0 right-0 h-screen w-80 max-w-[85vw] z-50 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
+            style="background: #000000 !important;">
+            <div class="flex flex-col min-h-full" style="background: #000000 !important;">
+                <div class="flex justify-between items-center p-6 border-b border-white/10"
+                    style="background: #000000 !important;">
                     <div class="h-12 w-auto flex items-center">
                         <img alt="Gazoo's Detailing Logo" class="h-full object-contain"
                             src="cropped-logo-detailing-1-1-300x143.jpg" />
@@ -209,7 +210,7 @@
                         <span class="material-symbols-outlined text-3xl">close</span>
                     </button>
                 </div>
-                <nav class="flex flex-col items-start p-8 space-y-6">
+                <nav class="flex flex-col items-start p-8 space-y-6 flex-grow" style="background: #000000 !important;">
                     <a class="text-lg font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300 text-white"
                         href="#" onclick="closeMobileMenu()">Home</a>
                     <a class="text-lg font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300 text-white"
@@ -221,6 +222,9 @@
                         Concierge
                     </a>
                 </nav>
+                <div class="p-6" style="background: #000000 !important;">
+                    <p class="text-xs text-gray-500 text-center">© 2026 Gazoo's Detailing</p>
+                </div>
             </div>
         </div>
     </nav>
