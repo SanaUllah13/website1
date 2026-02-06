@@ -191,8 +191,12 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="md:hidden hidden fixed inset-0 z-50 bg-luxury-black/98 backdrop-blur-lg">
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="md:hidden hidden fixed inset-0 z-40 bg-black/70"
+            onclick="closeMobileMenu()"></div>
+        <!-- Mobile Menu Sidebar -->
+        <div id="mobile-menu"
+            class="md:hidden fixed top-0 right-0 h-full w-80 max-w-[85%] z-50 bg-black transform translate-x-full transition-transform duration-300 ease-in-out">
             <div class="flex flex-col h-full">
                 <div class="flex justify-between items-center p-6 border-b border-white/10">
                     <div class="h-12 w-auto flex items-center">
@@ -204,14 +208,14 @@
                         <span class="material-symbols-outlined text-3xl">close</span>
                     </button>
                 </div>
-                <nav class="flex flex-col items-center justify-center flex-grow space-y-8">
-                    <a class="text-xl font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300"
+                <nav class="flex flex-col items-start p-8 space-y-6">
+                    <a class="text-lg font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300 text-white"
                         href="#" onclick="closeMobileMenu()">Home</a>
-                    <a class="text-xl font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300"
+                    <a class="text-lg font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300 text-white"
                         href="#services" onclick="closeMobileMenu()">Services</a>
-                    <a class="text-xl font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300"
+                    <a class="text-lg font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300 text-white"
                         href="#ceramic" onclick="closeMobileMenu()">Ceramic Pro</a>
-                    <a class="px-8 py-3 border border-white/20 text-white text-sm font-bold uppercase tracking-widest hover:border-blue-metallic hover:bg-blue-metallic/10 hover:text-blue-metallic-light transition-all duration-300"
+                    <a class="mt-4 px-8 py-3 border border-white/20 text-white text-sm font-bold uppercase tracking-widest hover:border-blue-metallic hover:bg-blue-metallic/10 hover:text-blue-metallic-light transition-all duration-300"
                         href="#contact" onclick="closeMobileMenu()">
                         Concierge
                     </a>
@@ -224,26 +228,22 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
         function openMobileMenu() {
-            mobileMenu.classList.remove('hidden');
+            mobileMenuOverlay.classList.remove('hidden');
+            mobileMenu.classList.remove('translate-x-full');
             document.body.style.overflow = 'hidden';
         }
 
         function closeMobileMenu() {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
             document.body.style.overflow = '';
         }
 
         mobileMenuBtn.addEventListener('click', openMobileMenu);
         mobileMenuClose.addEventListener('click', closeMobileMenu);
-
-        // Close menu when clicking outside
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) {
-                closeMobileMenu();
-            }
-        });
     </script>
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
