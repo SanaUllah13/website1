@@ -184,13 +184,67 @@
                     </a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button class="text-white hover:text-blue-metallic-light focus:outline-none transition-colors">
+                    <button id="mobile-menu-btn"
+                        class="text-white hover:text-blue-metallic-light focus:outline-none transition-colors">
                         <span class="material-symbols-outlined text-3xl font-light">menu</span>
                     </button>
                 </div>
             </div>
         </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden hidden fixed inset-0 z-50 bg-luxury-black/98 backdrop-blur-lg">
+            <div class="flex flex-col h-full">
+                <div class="flex justify-between items-center p-6 border-b border-white/10">
+                    <div class="h-12 w-auto flex items-center">
+                        <img alt="Gazoo's Detailing Logo" class="h-full object-contain"
+                            src="cropped-logo-detailing-1-1-300x143.jpg" />
+                    </div>
+                    <button id="mobile-menu-close"
+                        class="text-white hover:text-blue-metallic-light focus:outline-none transition-colors">
+                        <span class="material-symbols-outlined text-3xl">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col items-center justify-center flex-grow space-y-8">
+                    <a class="text-xl font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300"
+                        href="#" onclick="closeMobileMenu()">Home</a>
+                    <a class="text-xl font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300"
+                        href="#services" onclick="closeMobileMenu()">Services</a>
+                    <a class="text-xl font-medium uppercase tracking-widest hover:text-blue-metallic-light transition-colors duration-300"
+                        href="#ceramic" onclick="closeMobileMenu()">Ceramic Pro</a>
+                    <a class="px-8 py-3 border border-white/20 text-white text-sm font-bold uppercase tracking-widest hover:border-blue-metallic hover:bg-blue-metallic/10 hover:text-blue-metallic-light transition-all duration-300"
+                        href="#contact" onclick="closeMobileMenu()">
+                        Concierge
+                    </a>
+                </nav>
+            </div>
+        </div>
     </nav>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+    </script>
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img alt="High-end luxury car detailing" class="w-full h-full object-cover object-center scale-105"
